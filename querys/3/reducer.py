@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Para cada moneda dime cuál fue su valor de “Close” más alto de los ultimos 30 dias
+
 import sys
 from datetime import datetime, timedelta
 

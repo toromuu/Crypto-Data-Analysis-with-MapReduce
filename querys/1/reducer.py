@@ -1,11 +1,12 @@
 #!/usr/bin/python
 
+# Para cada moneda dime su valor promedio historico
+
 import sys
 
 mean = 0
 i = 0
 oldKey = None
-
 
 for line in sys.stdin:
     data_mapped = line.strip().split("\t")
@@ -29,3 +30,4 @@ for line in sys.stdin:
 if oldKey != None:
     mean = mean / i
     print("%s\t%s" % (oldKey, mean))
+

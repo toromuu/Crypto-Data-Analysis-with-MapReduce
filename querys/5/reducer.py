@@ -1,11 +1,13 @@
 #!/usr/bin/python
 
+# Dime las monedas cuya diferencia más grande entre open y close sea mayor a un 50% en el ultimo año
+
 import sys
 from datetime import datetime, timedelta
 
 auxDate = 0
 oldKey = None
-halfmonth = datetime.today() - timedelta(days=15)
+lastYear = datetime.today() - timedelta(days=365)
 
 for line in sys.stdin:
     data_mapped = line.strip().split("\t")
@@ -23,7 +25,7 @@ for line in sys.stdin:
     diff= abs(float(thisOpen) - float(thisClose) ) 
     auxDate = datetime.fromtimestamp(float(thisDate))
 
-    if auxDate > halfmonth and 0.5*float(thisOpen) < diff:
+    if auxDate > lastYear and 0.5*float(thisOpen) < diff:
         print("%s\t%s\t%s" % (oldKey, diff, auxDate))
 
 if oldKey != None:

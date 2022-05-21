@@ -1,8 +1,10 @@
 #!/usr/bin/python
 
+
+# Para cada moneda dime la fecha donde tuvo su valor más alto
+
 import sys
 import datetime
-import time
 
 value  = 0
 date = 0
@@ -25,7 +27,7 @@ for line in sys.stdin:
         date = 0
 
     oldKey = thisKey
-    value  += (float(thisOpen) + float(thisClose) ) / 2
+    value  = (float(thisOpen) + float(thisClose) ) / 2
 
     if max < value:
         max = value

@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Dime de entre todas las monedas cual ha tenido el volumen de transacciones promedio más grande en la ultima semana.
+
 import sys
 from datetime import datetime, timedelta
 
