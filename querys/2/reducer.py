@@ -20,7 +20,7 @@ for line in sys.stdin:
     thisKey, thisOpen, thisClose, thisDate = data_mapped
 
     if oldKey and oldKey != thisKey:
-        print("%s\t%s\t%s" % (oldKey, max, int(datetime.date.fromtimestamp(date))))
+        print("%s\t%s\t%s" % (oldKey, max, datetime.date.fromtimestamp(date)))
         oldKey = thisKey
         value  = 0
         max = 0
@@ -34,4 +34,4 @@ for line in sys.stdin:
         date = int(thisDate)
 
 if oldKey != None:
-   print("%s\t%s\t%s" % (oldKey, max, int(datetime.date.fromtimestamp(date))))
+   print("%s\t%s\t%s" % (oldKey, max, datetime.date.fromtimestamp(date)))

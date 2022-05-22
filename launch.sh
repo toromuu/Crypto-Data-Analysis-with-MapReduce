@@ -1,9 +1,12 @@
 #!/usr/bin/bash
 
+hadoop fs -rm -r trabajo
+hadoop fs -mkdir -p trabajo
 
 #1º Descargar dataset
 python ../make_custom_dataset.py ../datasets_urls.txt
 #cat custom_dataset.txt | python mapper.py | sort -k 1,1 | python reducer.py
+hadoop fs -put ./dataset trabajo
 
 #2º Configurar hadoop
 
@@ -23,3 +26,5 @@ hadoop fs -text trabajo/output/Consulta2/part-00000 |
 hadoop fs -text trabajo/output/Consulta3/part-00000 |
 hadoop fs -text trabajo/output/Consulta4/part-00000 |
 hadoop fs -text trabajo/output/Consulta5/part-00000 |
+
+hadoop fs rm -r 
