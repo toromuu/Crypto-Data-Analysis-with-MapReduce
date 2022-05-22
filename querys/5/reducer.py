@@ -26,7 +26,7 @@ for line in sys.stdin:
     auxDate = datetime.fromtimestamp(float(thisDate))
 
     if auxDate > lastYear and 0.5*float(thisOpen) < diff:
-        print("%s\t%s\t%s" % (oldKey, diff, auxDate))
+        print("%s\t%s\t%s" % (oldKey, diff, int(auxDate)))
 
 if oldKey != None:
-   print("%s\t%s\t%s" % (oldKey, diff, auxDate))
+   print("%s\t%s\t%s" % (oldKey, diff, int(auxDate)))

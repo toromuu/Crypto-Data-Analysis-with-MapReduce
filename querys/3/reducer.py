@@ -20,7 +20,7 @@ for line in sys.stdin:
     thisKey, thisClose, thisDate = data_mapped
 
     if oldKey and oldKey != thisKey:
-        print("%s\t%s\t%s" % (oldKey, max, date))
+        print("%s\t%s\t%s" % (oldKey, max, int(date)))
         oldKey = thisKey
         max = 0
         date = 0
@@ -33,4 +33,4 @@ for line in sys.stdin:
         date = auxDate
 
 if oldKey != None:
-   print("%s\t%s\t%s" % (oldKey, max, date))
+   print("%s\t%s\t%s" % (oldKey, max, int(date)))
