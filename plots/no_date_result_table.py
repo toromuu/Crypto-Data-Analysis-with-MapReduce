@@ -7,7 +7,8 @@ if __name__ == '__main__':
     lab_val = []
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("filename", help="The filename to be processed")
+    parser.add_argument("filename", help="The filename to be processed with extension")
+    parser.add_argument("filename_out", help="The filename result with extension")
     args = parser.parse_args()
 
     if args.filename:
@@ -27,5 +28,5 @@ if __name__ == '__main__':
     for i in range(len(labels)):
         table.add_row([labels[i], values[i]])
 
-    with open('query1_s3.txt', 'w') as f:
+    with open(args.filename_out, 'w') as f:
         f.write(table.get_string())
