@@ -48,3 +48,5 @@ scp -o StrictHostKeyChecking=no -i ../../access_lab ./plots/query3.png alucloud1
 scp -o StrictHostKeyChecking=no -i ../../access_lab ./plots/query4.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
 scp -o StrictHostKeyChecking=no -i ../../access_lab ./plots/query5.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
 
+
+ssh  -o StrictHostKeyChecking=no -i ../../access_lab alucloud192@lab2.cursocloudaws.net "bash -s" < ./s3_upload.sh
