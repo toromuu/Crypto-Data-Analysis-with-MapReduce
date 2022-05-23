@@ -6,7 +6,7 @@ hadoop fs -mkdir -p trabajo
 
 
 #1º Descargar dataset
-python ../make_custom_dataset.py ../datasets_urls.txt
+python ./make_custom_dataset.py ./datasets_urls.txt
 #cat custom_dataset.txt | python mapper.py | sort -k 1,1 | python reducer.py
 
 
