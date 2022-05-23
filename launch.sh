@@ -21,10 +21,21 @@ hs ./querys/5/mapper.py ./querys/5/reducer.py trabajo/dataset/ trabajo/output/Co
 
 #4º Recuperar resultados de las consultas y pasarselos a los scripts para pintar las graficas
 
-hadoop fs -text trabajo/output/Consulta1/part-00000 | ./plots
-hadoop fs -text trabajo/output/Consulta2/part-00000 |
-hadoop fs -text trabajo/output/Consulta3/part-00000 |
-hadoop fs -text trabajo/output/Consulta4/part-00000 |
-hadoop fs -text trabajo/output/Consulta5/part-00000 |
+
+hadoop fs -text trabajo/output/Consulta1/part-00000 > ./results/query1.txt
+hadoop fs -text trabajo/output/Consulta2/part-00000 > ./results/query2.txt
+hadoop fs -text trabajo/output/Consulta3/part-00000 > ./results/query3.txt
+hadoop fs -text trabajo/output/Consulta4/part-00000 > ./results/query4.txt
+hadoop fs -text trabajo/output/Consulta5/part-00000 > ./results/query5.txt
+
+
+python ./plot_results.py ./results/query1.txt ./plots/query1.png "bar-plot" "off" "Value" " Valor Promedio Historico"
+python ./plot_results.py ./results/query2.txt ./plots/query2.txt "table" "on" "Value" "Fecha valor Historico mas alto"
+python ./plot_results.py ./results/query3.txt ./plots/query3.png "bar-plot" "on" "Value" "Fecha del valor de cierre más alto en ultimo mes"
+python ./plot_results.py ./results/query4.txt ./plots/query4.txt "table" "off" "Volume" "Moneda con el volumen de transacciones mas alto ultima semana"
+python ./plot_results.py ./results/query5.txt ./plots/query5.txt "table" "on" "Diferencia" "Monedas con registros donde la diff(open-close) > 50%"
+
 
 hadoop fs rm -r 
+
+
