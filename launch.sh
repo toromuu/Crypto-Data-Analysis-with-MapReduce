@@ -7,9 +7,10 @@ chmod 740 make_custom_dataset.py
 chmod 740 plot_results.py
 
 #1º Descargar dataset
-python ./make_custom_dataset.py ./dataset/datasets_urls.txt
+python ./make_custom_dataset.py ./datasets_urls.txt
 #cat custom_dataset.txt | python mapper.py | sort -k 1,1 | python reducer.py
 
+mv custom_dataset.txt ./dataset
 
 hadoop fs -put ./dataset trabajo
 
