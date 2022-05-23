@@ -3,7 +3,8 @@
 hadoop fs -rm -r trabajo
 hadoop fs -mkdir -p trabajo
 
-
+chmod 740 make_custom_dataset.py
+chmod 740 plot_results.py
 
 #1º Descargar dataset
 python ./make_custom_dataset.py ./datasets_urls.txt
@@ -40,9 +41,9 @@ python ./plot_results.py ./results/query3.txt ./plots/query3.png "bar-plot" "on"
 python ./plot_results.py ./results/query4.txt ./plots/query4.txt "table" "off" "Volume" "Moneda con el volumen de transacciones mas alto ultima semana"
 python ./plot_results.py ./results/query5.txt ./plots/query5.txt "table" "on" "Diferencia" "Monedas con registros donde la diff(open-close) > 50%"
 
-scp -o StrictHostKeyChecking=no -i access_lab ./plots/query1.png alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
-scp -o StrictHostKeyChecking=no -i access_lab ./plots/query2.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
-scp -o StrictHostKeyChecking=no -i access_lab ./plots/query3.png alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
-scp -o StrictHostKeyChecking=no -i access_lab ./plots/query4.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
-scp -o StrictHostKeyChecking=no -i access_lab ./plots/query5.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
+scp -o StrictHostKeyChecking=no -i ../../access_lab ./plots/query1.png alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
+scp -o StrictHostKeyChecking=no -i ../../access_lab ./plots/query2.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
+scp -o StrictHostKeyChecking=no -i ../../access_lab ./plots/query3.png alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
+scp -o StrictHostKeyChecking=no -i ../../access_lab ./plots/query4.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
+scp -o StrictHostKeyChecking=no -i ../../access_lab ./plots/query5.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
 
