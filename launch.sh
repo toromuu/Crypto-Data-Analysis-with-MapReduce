@@ -3,12 +3,17 @@
 hadoop fs -rm -r trabajo
 hadoop fs -mkdir -p trabajo
 
+
+
 #1º Descargar dataset
 python ../make_custom_dataset.py ../datasets_urls.txt
 #cat custom_dataset.txt | python mapper.py | sort -k 1,1 | python reducer.py
+
+
 hadoop fs -put ./dataset trabajo
 
 #2º Configurar hadoop
+
 
 #3º Realizar consultas
 
@@ -19,8 +24,8 @@ hs ./querys/4/mapper.py ./querys/4/reducer.py trabajo/dataset/ trabajo/output/Co
 hs ./querys/5/mapper.py ./querys/5/reducer.py trabajo/dataset/ trabajo/output/Consulta5
 
 
-#4º Recuperar resultados de las consultas y pasarselos a los scripts para pintar las graficas
 
+#4º Recuperar resultados de las consultas y pasarselos a los scripts para pintar las graficas
 
 hadoop fs -text trabajo/output/Consulta1/part-00000 > ./results/query1.txt
 hadoop fs -text trabajo/output/Consulta2/part-00000 > ./results/query2.txt
@@ -35,7 +40,9 @@ python ./plot_results.py ./results/query3.txt ./plots/query3.png "bar-plot" "on"
 python ./plot_results.py ./results/query4.txt ./plots/query4.txt "table" "off" "Volume" "Moneda con el volumen de transacciones mas alto ultima semana"
 python ./plot_results.py ./results/query5.txt ./plots/query5.txt "table" "on" "Diferencia" "Monedas con registros donde la diff(open-close) > 50%"
 
-
-hadoop fs rm -r 
-
+scp -o StrictHostKeyChecking=no -i access_lab ./plots/query1.png alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
+scp -o StrictHostKeyChecking=no -i access_lab ./plots/query2.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
+scp -o StrictHostKeyChecking=no -i access_lab ./plots/query3.png alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
+scp -o StrictHostKeyChecking=no -i access_lab ./plots/query4.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
+scp -o StrictHostKeyChecking=no -i access_lab ./plots/query5.txt alucloud192@lab2.cursocloudaws.net:/home/alucloud192/.
 
