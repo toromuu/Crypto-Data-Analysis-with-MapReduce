@@ -33,8 +33,10 @@ crontab -e
 
 2. Choose the editor you want to use for adding the corresponding cron.
 
-3. Add the following line:
+3. Add the following line to run the script each day at 00:05 and save the output logs into a file for debuging:
 
 ```
-5 0 * * * /bin/bash /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/launch.sh
+5 0 * * * /bin/bash /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/launch.sh >> cron_logs.log 2>&1
 ```
+
+Note: For testing you can change the crontab time to 2 minutes using this: `*/2 * * * *`
