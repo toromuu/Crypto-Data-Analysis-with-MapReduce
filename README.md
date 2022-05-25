@@ -1,27 +1,59 @@
-# Crypto-Data-Analysis-with-MapReduce
+# Manual actions to use this project:
 
-
-1. Export the variable ID associated to each student on this course:
+0. Clone this repository and access to the main folder
 
 ```
-export ID=184
+git clone https://github.com/toromuu/Crypto-Data-Analysis-with-MapReduce.git
+
+cd Crypto-Data-Analysis-with-MapReduce/
+```
+
+1. Export the variable ID associated to each student on this course:
+For example:
+
+```
+alucloud$ID@hadoopmaster:~/Crypto-Data-Analysis-with-MapReduce$ export ID=184
 ```
 
 2. Run `configure.sh` script to configure the environment:
 
-/bin/bash /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/configure.sh
+```
+alucloud$ID@hadoopmaster:~/Crypto-Data-Analysis-with-MapReduce$ sh configure.sh
+```
 
-3. Follow manual steps on `ssh-key-readme.md` readme file.
+**Note: Since Hadoop's Cluster has not AWS CLI installed and we do not have sudo privileges we need to send the generated Graphs and Tables to S3 bucket, we need to follow below steps**
 
-4. Run manually `launch.sh` script:
+3. Manually copy the public key generated in previous script:
 
 ```
-/bin/bash /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/launch.sh
+alucloud$ID@hadoopmaster:~$ cat access_lab.pub
 ```
+
+4. Access AWS LAB instance via ssh
+
+```
+ssh alucloud$ID@lab2.cursocloudaws.net
+```
+
+5. Add `access_lab.pub` key into `.ssh/authorized_keys`:
+
+```
+alucloud$ID@lab:~$ vim .ssh/authorized_keys 
+```
+
+6. Retun to Hadoop cluster and run `launch.sh` script to generate the custom database, generate the 5 different queries and upload the results to S3:
+
+```
+alucloud$ID@hadoopmaster:~/Crypto-Data-Analysis-with-MapReduce$ sh launch.sh
+```
+
+7. Results will be uploaded into below links:
+
+
 
 # Automation:
 
-To create the crontab we should apply below commands:
+To automate this project you can create a crontab in Hadoop cluster following below steps:
 
 1. Create the crontab:
 
@@ -42,3 +74,5 @@ Choose 1-4 [1]:
 ```
 
 3. Add the commands from `crontab` file
+
+**Note: Crontab logs will be saved in `cron_logs.log`**

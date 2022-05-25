@@ -9,4 +9,4 @@ PATH=/home/alucloud$ID/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/
 
 
 # CronJob for each 2 minutes
-# */2 * * * * cd /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce && /bin/bash /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/launch.sh >> /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/cron_logs.log 2>&1
+*/2 * * * * cd /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce && /bin/bash /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/launch.sh >> /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/cron_logs.log 2>&1
