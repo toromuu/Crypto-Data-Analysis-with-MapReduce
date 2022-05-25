@@ -49,7 +49,11 @@ alucloud$ID@hadoopmaster:~/Crypto-Data-Analysis-with-MapReduce$ sh launch.sh
 
 7. Results will be uploaded into below links:
 
-
+https://alucloud.s3.amazonaws.com/192/query1.png
+https://alucloud.s3.amazonaws.com/192/query2.txt
+https://alucloud.s3.amazonaws.com/192/query3.png
+https://alucloud.s3.amazonaws.com/192/query4.txt
+https://alucloud.s3.amazonaws.com/192/query5.txt
 
 # Automation:
 
