@@ -1,0 +1,12 @@
+# USER
+ID=184
+
+# PATH
+PATH=/home/alucloud$ID/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/hadoop/bin:/opt/spark/bin:/opt/spark/bin
+
+# CronJob for each day at 00:05
+5 0 * * * cd /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce && /bin/bash /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/launch.sh >> /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/cron_logs.log 2>&1
+
+
+# CronJob for each 2 minutes
+# */2 * * * * cd /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce && /bin/bash /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/launch.sh >> /home/alucloud$ID/Crypto-Data-Analysis-with-MapReduce/cron_logs.log 2>&1
