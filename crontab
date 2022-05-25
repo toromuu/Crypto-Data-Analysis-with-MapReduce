@@ -1,5 +1,5 @@
 # USER
-ID=184
+ID="ADD HERE YOUR USER ID"
 
 # PATH
 PATH=/home/alucloud$ID/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/hadoop/bin:/opt/spark/bin:/opt/spark/bin
